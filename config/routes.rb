@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #get '/stocks', to: 'stocks#index' # add this line
 
   #get 'blogs/index'
-  get '/', to: 'blogs#index' # add this line
+  get 'app', to: 'blogs#index' # add this line
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   resources :blogs do
