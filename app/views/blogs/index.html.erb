@@ -1,3 +1,31 @@
-<html>
-  <h1>testing</h1>
-</html>
+<h1>List of blogs</h1>
+
+<p><%= notice %></p>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Contents</th></th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+
+    <td><%= link_to 'Check the details', blog_path(blog.id) %></td>
+    <td><%= link_to "Edit this blog", edit_blog_path(blog.id) %></td>
+    <td><%= link_to link_to 'Delete this blos', blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'Post a new blog', new_blog_path %>
